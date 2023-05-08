@@ -25,3 +25,12 @@ export const navSlice = createSlice({
 })
 
 export const { setOrigin, setDestination, setTravelTimeInfo } = navSlice.actions;
+
+// when pushing info. in the data layers
+// The way we grab the info from the data layers is done through Selectors
+
+export const selectOrigin = (state) => state.navSlice.origin;
+export const selectDestination = (state) => state.navSlice.destination;
+export const selectTravelTimeInfo = (state) => state.navSlice.travelTimeInfo;
+
+export default navSlice.reducer;
