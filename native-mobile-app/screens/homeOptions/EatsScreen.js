@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import tw from "tailwind-react-native-classnames";
-import Eats from "../../components/Eats";
+import Eats from "../../components/navComp/Eats";
 
 const EatsScreen = () => {
   return (

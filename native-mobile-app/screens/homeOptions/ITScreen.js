@@ -2,9 +2,9 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import tw from "tailwind-react-native-classnames";
-import ITServ from "../../components/ITServ";
-// import MobilePhones from "../screens/itOptions/MobilePhones";
-// import Camera from "../screens//itOptions/Camera";
+import ITServ from "../../components/navComp/ITServ";
+import MobilePhones from "./../itOptions/MobilePhones";
+import Camera from "./../itOptions/Camera";
 
 const ITScreen = () => {
   const Stack = createStackNavigator();
@@ -43,8 +43,9 @@ const ITScreen = () => {
 const styles = StyleSheet.create({
   itViewStyleContainer: {
     textAlign: "center",
-    paddingTop: 14,
-    margin: 10,
+    paddingBottom: 20,
+    paddingTop: 20,
+    margin: 16,
   },
 });
 

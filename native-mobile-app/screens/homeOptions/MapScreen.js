@@ -4,7 +4,7 @@ import tw from "tailwind-react-native-classnames";
 import { createStackNavigator } from "@react-navigation/stack";
 import NavigateCard from "../../components/navigating/NavigateCard";
 import RideOptionsCard from "../../components/navigating/RideOptionsCard";
-import Map from "../../components/Map";
+import Map from "../../components/navComp/Map";
 
 const MapScreen = () => {
   const Stack = createStackNavigator();
