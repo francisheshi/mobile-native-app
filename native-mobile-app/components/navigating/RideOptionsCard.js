@@ -5,7 +5,7 @@ import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplet
 const RideOptionsCard = () => {
   return (
     <SafeAreaView style={tw`bg-white flex-1`}>
-      <Text style={tw`text-center py-5 text-xl`}>Options Card</Text>
+      <Text style={tw`text-center py-4 text-xl`}>Options Card</Text>
 
       <View style={tw`border-t border-gray-200 flex-shrink`}>
         <View>

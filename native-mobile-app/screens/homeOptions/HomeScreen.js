@@ -1,12 +1,12 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, View, Image } from "react-native";
-import tw from "tailwind-react-native-classnames";
-import NavOptions from "../components/NavOptions";
-import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-import { setDestination, setOrigin } from "../slices/navSlice";
+import { StyleSheet, SafeAreaView, View, Image, Button } from "react-native";
 import { useDispatch } from "react-redux";
+import tw from "tailwind-react-native-classnames";
+import NavOptions from "../../components/navigating/NavOptions";
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import { setDestination, setOrigin } from "../../slices/navSlice";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const dispatch = useDispatch();
 
   return (
@@ -20,7 +20,7 @@ const HomeScreen = () => {
         />
         <GooglePlacesAutocomplete
           nearbyPlacesAPI="GooglePlacesSearch"
-          placeholder="Where from?"
+          placeholder="Search..."
           styles={{
             container: {
               flex: 0,
@@ -44,7 +44,13 @@ const HomeScreen = () => {
           minLength={2}
           debounce={400}
         />
+
         <NavOptions />
+        <Button
+          onPress={() => console.log("btn")}
+          title="Ready to Sign-in?"
+          type="clear"
+        />
       </View>
     </SafeAreaView>
   );

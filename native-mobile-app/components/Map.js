@@ -1,10 +1,7 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import MapView, { Marker } from "react-native-maps";
-import { useSelector } from "react-redux";
-import { selectOrigin, selectDestination } from "../slices/navSlice";
 import tw from "tailwind-react-native-classnames";
-import MapViewDirections from "react-native-maps-directions";
 
 const Map = () => {
   return (
@@ -23,7 +20,7 @@ const Map = () => {
           latitude: 37.78825,
           longitude: -122.4324,
         }}
-        title="Origin"
+        title="origin"
         identifier="origin"
       />
     </MapView>

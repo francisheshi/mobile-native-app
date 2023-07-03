@@ -1,17 +1,17 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import tw from "tailwind-react-native-classnames";
-import Map from "../components/Map";
 import { createStackNavigator } from "@react-navigation/stack";
-import NavigateCard from "../components/NavigateCard";
-import RideOptionsCard from "../components/RideOptionsCard";
+import NavigateCard from "../../components/navigating/NavigateCard";
+import RideOptionsCard from "../../components/navigating/RideOptionsCard";
+import Map from "../../components/Map";
 
-const EatsScreen = () => {
+const MapScreen = () => {
   const Stack = createStackNavigator();
 
   return (
     <View>
-      <Text>EatsScreen</Text>
+      <Text style={tw`text-center py-3 pt-12 text-xl`}>MapScreen</Text>
       <View style={tw`h-1/2`}>
         <Map />
       </View>
@@ -38,6 +38,6 @@ const EatsScreen = () => {
   );
 };
 
-export default EatsScreen;
+export default MapScreen;
 
 const styles = StyleSheet.create({});
