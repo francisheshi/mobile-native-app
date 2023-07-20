@@ -11,48 +11,40 @@ import MapScreen from "./screens/homeOptions/MapScreen";
 import EatsScreen from "./screens/homeOptions/EatsScreen";
 import ITScreen from "./screens/homeOptions/ITScreen";
 
-function App() {
+const App = () => {
   const Stack = createStackNavigator();
 
   return (
     <Provider store={store}>
       <NavigationContainer>
         <SafeAreaProvider>
-          <Stack.Navigator>
+          <Stack.Navigator initialRouteName="HomeScreen">
             <Stack.Screen
               name="HomeScreen"
               component={HomeScreen}
-              options={{
-                headerShown: false,
-              }}
+              options={{ headerShown: false }}
             />
             <Stack.Screen
               name="MapScreen"
               component={MapScreen}
-              options={{
-                headerShown: false,
-              }}
+              options={{ headerShown: false }}
             />
             <Stack.Screen
               name="EatsScreen"
               component={EatsScreen}
-              options={{
-                headerShown: false,
-              }}
+              options={{ headerShown: false }}
             />
             <Stack.Screen
               name="ITScreen"
               component={ITScreen}
-              options={{
-                headerShown: false,
-              }}
+              options={{ headerShown: false }}
             />
           </Stack.Navigator>
         </SafeAreaProvider>
       </NavigationContainer>
     </Provider>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -60,6 +52,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center", // the alignment of each item inside the line
     justifyContent: "center", // the alignment of the whole line
+  },
+  sidebar: {
+    maxWidth: "240px",
+    border: "1px solid rgba(0, 0, 0, 0.1)",
   },
 });
 

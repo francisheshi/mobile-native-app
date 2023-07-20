@@ -7,7 +7,7 @@ const EatsScreen = () => {
   return (
     <View>
       <Text style={tw`text-center py-3 pt-12 text-xl`}>Eats Screen</Text>
-      <View style={tw`pl-4 pt-5 h-1/2`}>
+      <View style={tw`pl-1 pt-12`}>
         <Eats />
       </View>
     </View>
@@ -15,5 +15,3 @@ const EatsScreen = () => {
 };
 
 export default EatsScreen;
-
-const styles = StyleSheet.create({});

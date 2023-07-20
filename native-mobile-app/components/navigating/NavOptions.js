@@ -27,7 +27,6 @@ const data = [
   {
     id: "1C",
     title: "IT accessories & tools",
-    image: "https://links.papareact.com/28w",
     screen: "ITScreen",
   },
 ];
@@ -43,7 +42,7 @@ const NavOptions = () => {
       renderItem={({ item }) => (
         <TouchableOpacity
           onPress={() => navigation.navigate(item.screen)}
-          style={tw`p-1 pl-4 pb-6 pt-3 bg-gray-200 m-2 w-40`}
+          style={tw`p-1 pl-4 pb-6 pt-3 bg-gray-200 m-4 w-40`}
         >
           <View>
             <Image

@@ -1,9 +1,9 @@
-import React from "react";
-import { Image } from "react-native";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import tw from "tailwind-react-native-classnames";
 
-const cameras = [
+const cameraData = [
   {
     id: "1C",
     title: "Camera 1",
@@ -19,13 +19,15 @@ const cameras = [
 ];
 
 const Camera = () => {
+  const [cameras, setCameras] = useState(cameraData);
+
   return (
     <View>
       <Text style={tw`text-center py-3 text-xl`}>Camera</Text>
 
       <View style={tw`pl-2 pt-2 h-1/2`}>
         {cameras.map((camera) => (
-          <Text key={camera.id} style={styles.textCustom}>
+          <Text key={camera.id} id={camera.id} style={styles.textCustom}>
             {camera.title}
           </Text>
         ))}

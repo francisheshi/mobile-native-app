@@ -1,11 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import SidebarMenu from "../navigating/sidebar/SidebarMenu";
 
 const Eats = () => {
   return (
     <View>
-      <Text>Eat</Text>
-      <View></View>
+      <View>
+        <SidebarMenu />
+      </View>
     </View>
   );
 };

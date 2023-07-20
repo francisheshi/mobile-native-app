@@ -14,9 +14,7 @@ const HomeScreen = ({ navigation }) => {
       <View style={tw`p-5`}>
         <Image
           style={styles.img}
-          source={{
-            uri: "https://links.papareact.com/gzs",
-          }}
+          source={require("../../stylesImage/Ordering.png")}
         />
         <GooglePlacesAutocomplete
           nearbyPlacesAPI="GooglePlacesSearch"
@@ -46,11 +44,6 @@ const HomeScreen = ({ navigation }) => {
         />
 
         <NavOptions />
-        <Button
-          onPress={() => console.log("btn")}
-          title="Ready to Sign-in?"
-          type="clear"
-        />
       </View>
     </SafeAreaView>
   );
@@ -63,11 +56,14 @@ const styles = StyleSheet.create({
   img: {
     width: 100,
     height: 100,
-    resizeMode: "contain",
   },
   autocomplete: {
     flex: 0,
     fontSize: 18,
+  },
+  openSideBar: {
+    fontSize: 10,
+    border: "1 solid black",
   },
 });
 

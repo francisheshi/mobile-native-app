@@ -1,8 +1,9 @@
 import React from "react";
+import { useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import tw from "tailwind-react-native-classnames";
 
-const mobiles = [
+const mobilesData = [
   {
     id: "1M",
     title: "Mobile 1",
@@ -18,6 +19,8 @@ const mobiles = [
 ];
 
 const MobilePhones = () => {
+  const [mobiles, setMobiles] = useState(mobilesData);
+
   return (
     <View>
       <Text style={tw`text-center py-3 text-xl`}>Mobile Phones</Text>
