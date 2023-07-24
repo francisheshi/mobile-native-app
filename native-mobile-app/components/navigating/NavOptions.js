@@ -27,6 +27,7 @@ const data = [
   {
     id: "1C",
     title: "IT accessories & tools",
+    image: "https://tinyurl.com/2435dfzt",
     screen: "ITScreen",
   },
 ];
