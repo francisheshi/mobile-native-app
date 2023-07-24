@@ -1,91 +1,76 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, Pressable, Modal, Alert } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import EatsModalMenu from "./EatsModalMenu";
 
 const SidebarMenu = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const handleSidebarOpen = () => {
+    setSidebarOpen(true);
+  };
+  const handleSidebarClose = () => {
+    setSidebarOpen(false);
+  };
 
   return (
-    <View style={styles.centeredView}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Fast Food</Text>
-            <Text style={styles.modalText}>Pizza</Text>
-            <Text style={styles.modalText}>Pasta</Text>
-            <Text style={styles.modalText}>Burgers</Text>
-
-            <Pressable
-              style={[styles.btnModal, styles.btnCloseModal]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Close</Text>
-            </Pressable>
+    <View>
+      {!sidebarOpen ? (
+        <Pressable
+          style={[styles.btnSidebar, styles.btnOpenSidebar]}
+          onPress={() => handleSidebarOpen()}
+        >
+          <Text style={styles.textStyle}>Open</Text>
+        </Pressable>
+      ) : (
+        <View>
+          <Pressable
+            style={[styles.btnSidebar, styles.btnCloseSidebar]}
+            onPress={() => handleSidebarClose()}
+          >
+            <Text style={styles.textStyle}>Close</Text>
+          </Pressable>
+          <View style={styles.sidebar_item}>
+            <Text>Fast Food</Text>
+          </View>
+          <View style={styles.sidebar_item}>
+            <Text>Pizza</Text>
+          </View>
+          <View style={styles.sidebar_item}>
+            <Text>Salads</Text>
+          </View>
+          <View style={styles.sidebar_item}>
+            <Text>Pasta</Text>
+          </View>
+          <View style={styles.sidebar_item}>
+            <Text>Burgers</Text>
           </View>
         </View>
-      </Modal>
-
-      <Pressable
-        style={[styles.btnModal, styles.btnOpenModal]}
-        onPress={() => setModalVisible(true)}
-      >
-        <Text style={styles.textStyle}>Food Lovers</Text>
-      </Pressable>
+      )}
+      <EatsModalMenu />
     </View>
   );
 };
 
+export default SidebarMenu;
+
 const styles = StyleSheet.create({
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22,
+  btnSidebar: {
+    shadowOpacity: 0.8,
+    borderRadius: 8,
+    marginRight: "40%",
+    marginLeft: "40%",
+    padding: 8,
+    marginTop: 2,
   },
-  btnModal: {
-    borderRadius: 22,
-    padding: 10,
-    elevation: 2.5,
-    height: 34,
+  btnOpenSidebar: {
+    backgroundColor: "olivedrab",
+    position: "relative",
   },
-  btnOpenModal: {
-    backgroundColor: "#F194FF",
-  },
-  btnCloseModal: {
-    backgroundColor: "#2196F3",
+  btnCloseSidebar: {
+    backgroundColor: "orangered",
   },
   textStyle: {
     color: "white",
     fontWeight: "bold",
     textAlign: "center",
   },
-  modalView: {
-    margin: 20,
-    backgroundColor: "white",
-    borderRadius: 22,
-    padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 11,
-      height: 5,
-    },
-    shadowOpacity: 0.4,
-    shadowRadius: 6,
-    elevation: 6,
-  },
-  modalText: {
-    marginBottom: 5,
-    display: "flex",
-    textAlign: "center",
-  },
 });
-
-export default SidebarMenu;

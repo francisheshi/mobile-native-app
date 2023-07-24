@@ -18,7 +18,7 @@ const ITScreen = () => {
         <ITServ />
       </View>
 
-      <View style={tw`h-1/2`}>
+      <View style={tw`text-center pt-1 h-1/2`}>
         <Stack.Navigator>
           <Stack.Screen
             name="MobilePhones"
