@@ -55,7 +55,7 @@ const MobilePhones = () => {
 
       <Text style={tw`text-center py-3 text-xl`}>Mobile Phones</Text>
 
-      <View style={[tw`pl-1 pt-1 h-1/2`]}>
+      <View style={[tw`text-center mt-3 h-1/2`]}>
         {mobiles.map((mobile) => (
           <Pressable
             style={[styles.btnModal, styles.btnOpenModal, styles.textCustom]}
@@ -79,17 +79,17 @@ export default MobilePhones;
 
 const styles = StyleSheet.create({
   textCustom: {
-    fontSize: 12,
-    marginTop: 8,
-    marginBottom: 8,
+    fontSize: 15,
+    marginTop: 10,
+    marginBottom: 10,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "olivedrab",
   },
   insideModalTit: {
     fontSize: 16,
-    marginTop: 8,
-    marginBottom: 8,
+    marginTop: 10,
+    marginBottom: 10,
     justifyContent: "center",
     alignItems: "center",
     display: "flex",
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginRight: "40%",
     marginLeft: "40%",
-    padding: 8,
+    padding: 6,
     marginTop: 2,
   },
   btnOpenModal: {
@@ -124,21 +124,18 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   modalView: {
-    margin: "12%",
+    margin: "15%",
     backgroundColor: "white",
-    borderRadius: 22,
+    borderRadius: 24,
     padding: 15,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
-      width: 10,
-      height: 5,
+      width: 14,
+      height: 7,
     },
-    shadowOpacity: 0.4,
-    shadowRadius: 6,
-    elevation: 6,
-  },
-  modalText: {
-    marginBottom: 5,
+    shadowOpacity: 0.6,
+    shadowRadius: 8,
+    elevation: 8,
   },
 });

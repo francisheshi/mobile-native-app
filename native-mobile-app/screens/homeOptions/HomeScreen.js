@@ -3,8 +3,7 @@ import { StyleSheet, SafeAreaView, View, Image, Button } from "react-native";
 import { useDispatch } from "react-redux";
 import tw from "tailwind-react-native-classnames";
 import NavOptions from "../../components/navigating/NavOptions";
-import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-import { setDestination, setOrigin } from "../../slices/navSlice";
+import Searchbar from "../../components/navigating/search/Searchbar";
 
 const HomeScreen = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -16,33 +15,7 @@ const HomeScreen = ({ navigation }) => {
           style={styles.img}
           source={require("../../stylesImage/Ordering.png")}
         />
-        <GooglePlacesAutocomplete
-          nearbyPlacesAPI="GooglePlacesSearch"
-          placeholder="Search..."
-          styles={{
-            container: {
-              flex: 0,
-            },
-            textInput: {
-              fontSize: 18,
-            },
-          }}
-          returnKeyType={"search"}
-          enablePoweredByContainer={false}
-          onPress={(data, details = null) => {
-            dispatch(
-              setOrigin({
-                location: details.geometry.location,
-                description: data.description,
-              })
-            );
-            dispatch(setDestination(null));
-          }}
-          fetchDetais={false}
-          minLength={2}
-          debounce={400}
-        />
-
+        <Searchbar />
         <NavOptions />
       </View>
     </SafeAreaView>

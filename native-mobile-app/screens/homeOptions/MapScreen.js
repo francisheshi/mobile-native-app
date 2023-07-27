@@ -8,7 +8,6 @@ import Map from "../../components/navComp/Map";
 
 const MapScreen = () => {
   const Stack = createStackNavigator();
-
   return (
     <View>
       <Text style={tw`text-center py-3 pt-12 text-xl`}>MapScreen</Text>
@@ -21,16 +20,12 @@ const MapScreen = () => {
           <Stack.Screen
             name="NavigateCard"
             component={NavigateCard}
-            options={{
-              headerShown: false,
-            }}
+            options={{ title: "App home" }}
           />
           <Stack.Screen
             name="RideOptionsCard"
             component={RideOptionsCard}
-            options={{
-              headerShown: false,
-            }}
+            options={({ route }) => ({ title: route.params.name })}
           />
         </Stack.Navigator>
       </View>

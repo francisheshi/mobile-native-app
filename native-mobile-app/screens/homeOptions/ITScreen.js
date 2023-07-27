@@ -8,34 +8,27 @@ import Camera from "./../itOptions/Camera";
 
 const ITScreen = () => {
   const Stack = createStackNavigator();
-
   return (
     <View>
       <Text style={tw`text-center py-4 pt-14 text-xl`}>
         IT - Service/Accessories
       </Text>
+
       <View style={styles.itViewStyleContainer}>
         <ITServ />
       </View>
-
-      <View style={tw`text-center pt-1 h-1/2`}>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="MobilePhones"
-            component={MobilePhones}
-            options={{
-              headerShown: false,
-            }}
-          />
-          <Stack.Screen
-            name="Camera"
-            component={Camera}
-            options={{
-              headerShown: false,
-            }}
-          />
-        </Stack.Navigator>
-      </View>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="MobilePhones"
+          component={MobilePhones}
+          options={{ title: "App home" }}
+        />
+        <Stack.Screen
+          name="Camera"
+          component={Camera}
+          options={{ title: "Back to IT Home" }}
+        />
+      </Stack.Navigator>
     </View>
   );
 };
