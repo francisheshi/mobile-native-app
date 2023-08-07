@@ -1,23 +1,58 @@
 import React, { useState } from "react";
-import { TextInput, View, StyleSheet } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import { View, TextInput, FlatList, Text, StyleSheet } from "react-native";
+import { ListItem } from "react-native-elements";
 import SearchFilter from "./SearchFilter";
 import { data } from "../NavOptions";
 
+// const data = [
+//   {
+//     id: "1A",
+//     title: "Get a ride",
+//     image: "https://links.papareact.com/3pn",
+//     screen: "MapScreen",
+//   },
+//   {
+//     id: "1B",
+//     title: "Order food",
+//     image: "https://links.papareact.com/28w",
+//     screen: "EatsScreen",
+//   },
+//   {
+//     id: "1C",
+//     title: "IT accessories & tools",
+//     image: "https://tinyurl.com/2435dfzt",
+//     screen: "ITScreen",
+//   },
+// ];
+
 const Searchbar = () => {
-  const [input, setInput] = useState(data);
-  console.log(input);
+  const [search, setSearch] = useState("");
+  const filteredData = data?.filter((item) =>
+    item.title.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const renderListItem = ({ item }) => (
+    <ListItem bottomDivider>
+      <ListItem.Content>
+        <ListItem.Title>{item.title}</ListItem.Title>
+        <ListItem.Subtitle numberOfLines={1}>{item.code}</ListItem.Subtitle>
+      </ListItem.Content>
+    </ListItem>
+  );
+
   return (
     <View style={styles.view}>
-      <View style={styles.searchView}>
-        <Feather name="search" style={styles.searchFeather} />
-        <TextInput
-          value={input}
-          onChangeText={(text) => setInput(text)}
-          placeholder="Search..."
-          style={styles.searchInput}
-        />
-      </View>
+      <TextInput
+        placeholder="Search..."
+        onChangeText={(text) => setSearch(text)}
+        value={search}
+        style={styles.searchInput}
+      />
+      <FlatList
+        data={filteredData}
+        keyExtractor={(item) => item.id}
+        renderItem={renderListItem}
+      />
       <SearchFilter />
     </View>
   );

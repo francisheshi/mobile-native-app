@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import "react-native-gesture-handler";
+/* Stack Navigators */
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 /* Home Screens */
@@ -27,17 +28,17 @@ const App = () => {
             <Stack.Screen
               name="MapScreen"
               component={MapScreen}
-              options={{ headerShown: false }}
+              options={{ headerShown: true }}
             />
             <Stack.Screen
               name="EatsScreen"
               component={EatsScreen}
-              options={{ headerShown: false }}
+              options={{ headerShown: true }}
             />
             <Stack.Screen
               name="ITScreen"
               component={ITScreen}
-              options={{ headerShown: false }}
+              options={{ headerShown: true }}
             />
           </Stack.Navigator>
         </SafeAreaProvider>

@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, SafeAreaView, View } from "react-native";
-import tw from "tailwind-react-native-classnames";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import tw from "tailwind-react-native-classnames";
 
 const NavigateCard = () => {
   return (

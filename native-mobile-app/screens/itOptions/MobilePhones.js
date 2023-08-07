@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, Pressable, Modal } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Pressable,
+  Modal,
+  SafeAreaView,
+} from "react-native";
 import tw from "tailwind-react-native-classnames";
 
 const mobData = [
@@ -21,7 +28,7 @@ const MobilePhones = () => {
   const [mobiles, setMobiles] = useState(mobData);
   const [modalVisible, setModalVisible] = useState(false);
   return (
-    <View>
+    <SafeAreaView>
       <Modal
         animationType="fade"
         transparent={true}
@@ -71,7 +78,7 @@ const MobilePhones = () => {
           </Pressable>
         ))}
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -87,9 +94,9 @@ const styles = StyleSheet.create({
     backgroundColor: "olivedrab",
   },
   insideModalTit: {
-    fontSize: 16,
-    marginTop: 10,
-    marginBottom: 10,
+    fontSize: 15,
+    marginTop: 6,
+    marginBottom: 6,
     justifyContent: "center",
     alignItems: "center",
     display: "flex",
@@ -107,8 +114,8 @@ const styles = StyleSheet.create({
   btnModal: {
     shadowOpacity: 0.8,
     borderRadius: 8,
-    marginRight: "40%",
-    marginLeft: "40%",
+    marginRight: "38%",
+    marginLeft: "38%",
     padding: 6,
     marginTop: 2,
   },
@@ -124,7 +131,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   modalView: {
-    margin: "15%",
+    margin: "18%",
     backgroundColor: "white",
     borderRadius: 24,
     padding: 15,

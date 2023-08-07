@@ -1,40 +1,35 @@
-import React from "react";
-import { StyleSheet } from "react-native";
-import { Text, FlatList, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, FlatList, View } from "react-native";
 
 const SearchFilter = ({ data, input, setInput }) => {
-  return (
-    <View style={{ marginTop: 10 }}>
-      <FlatList
-        data={data}
-        renderItem={(item) => {
-          if (input === null) {
-            return (
-              <View>
-                <Text style={{ fontSize: 14, fontWeight: "bold" }}>
-                  {item.title}
-                </Text>
-                <Text
-                  style={{
-                    borderColor: "grey",
-                    borderWidth: 1,
-                    height: 1,
-                    marginTop: 5,
-                  }}
-                />
-              </View>
-            );
-          }
+  const [filteredDataSource, setFilteredDataSource] = useState([]);
 
-          if (item.toLowerCase().includes(input.toLowerCase())) {
-            return (
-              <View>
-                <Text style={styles.textSearchFilter1}>{item.title}</Text>
-                <Text style={styles.textSearchFilter2} />
-              </View>
-            );
-          }
-        }}
+  const handleSearchFilter = (item) => {
+    if (input === null) {
+      return (
+        <View>
+          <Text style={styles.textSearchFilter1}>{item.title}</Text>
+          <Text style={styles.textSearchFilter2} />
+        </View>
+      );
+    }
+
+    if (item.toLowerCase().includes(input.toLowerCase())) {
+      return (
+        <View>
+          <Text style={styles.textSearchFilter1}>{item.title}</Text>
+          <Text style={styles.textSearchFilter2} />
+        </View>
+      );
+    }
+  };
+
+  return (
+    <View style={styles.viewFlatList}>
+      <FlatList
+        data={filteredDataSource}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={handleSearchFilter}
       />
     </View>
   );
@@ -52,5 +47,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     height: 1,
     marginTop: 5,
+  },
+  viewFlatList: {
+    marginTop: 10,
   },
 });

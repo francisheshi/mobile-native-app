@@ -5,40 +5,32 @@ import tw from "tailwind-react-native-classnames";
 import ITServ from "../../components/navComp/ITServ";
 import MobilePhones from "./../itOptions/MobilePhones";
 import Camera from "./../itOptions/Camera";
+import { SafeAreaView } from "react-native";
 
 const ITScreen = () => {
   const Stack = createStackNavigator();
   return (
-    <View>
-      <Text style={tw`text-center py-4 pt-14 text-xl`}>
-        IT - Service/Accessories
-      </Text>
-
+    <SafeAreaView style={tw`text-center py-4 pt-14 text-xl`}>
       <View style={styles.itViewStyleContainer}>
         <ITServ />
       </View>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="MobilePhones"
-          component={MobilePhones}
-          options={{ title: "App home" }}
-        />
-        <Stack.Screen
-          name="Camera"
-          component={Camera}
-          options={{ title: "Back to IT Home" }}
-        />
-      </Stack.Navigator>
-    </View>
+
+      <View style={tw`text-center h-1/2`}>
+        <Stack.Navigator>
+          <Stack.Screen component={MobilePhones} name="MobilePhones" />
+          <Stack.Screen component={Camera} name="Camera" />
+        </Stack.Navigator>
+      </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   itViewStyleContainer: {
     textAlign: "center",
-    paddingBottom: 20,
-    paddingTop: 20,
-    margin: 16,
+    paddingBottom: 30,
+    paddingTop: 10,
+    margin: 26,
   },
 });
 

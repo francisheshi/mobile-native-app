@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { TouchableOpacity } from "react-native";
+import { Animated } from "react-native";
 import { StyleSheet, View, Text, Modal, Pressable } from "react-native";
 
 const EatsModalMenu = () => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [animation] = useState(() => new Animated.Value(0));
+
   return (
     <View>
       <Modal
@@ -20,12 +24,38 @@ const EatsModalMenu = () => {
             <Text style={styles.modalText}>Pizza</Text>
             <Text style={styles.modalText}>Pasta</Text>
             <Text style={styles.modalText}>Burgers</Text>
-            <Pressable
-              style={[styles.btnModal, styles.btnCloseModal]}
-              onPress={() => setModalVisible(!modalVisible)}
+            <View
+              style={{
+                flexDirection: "row",
+              }}
             >
-              <Text style={styles.textStyle}>Close</Text>
-            </Pressable>
+              <TouchableOpacity
+                style={[styles.btnModal, styles.btnCloseModal]}
+                onPress={() => {
+                  Animated.spring(animation, {
+                    toValue: 0,
+                    useNativeDriver: true,
+                  }).start();
+                }}
+              >
+                <Pressable onPress={() => setModalVisible(!modalVisible)}>
+                  <Text style={styles.textStyle}>Close</Text>
+                </Pressable>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.btnModal, styles.btnSaveModal]}
+                onPress={() => {
+                  Animated.spring(animation, {
+                    toValue: 2,
+                    useNativeDriver: true,
+                  }).start(() => {
+                    animation.setValue(0);
+                  });
+                }}
+              >
+                <Text style={styles.textStyle}>Save</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </Modal>
@@ -52,16 +82,19 @@ const styles = StyleSheet.create({
   btnModal: {
     shadowOpacity: 0.6,
     borderRadius: 10,
-    marginTop: "14%",
-    marginRight: "37%",
-    marginLeft: "37%",
-    padding: 10,
+    marginTop: "8%",
+    marginRight: "6%",
+    marginLeft: "6%",
+    padding: 11,
   },
   btnOpenModal: {
-    backgroundColor: "#F194FF",
+    backgroundColor: "olive",
   },
   btnCloseModal: {
-    backgroundColor: "#2196F3",
+    backgroundColor: "red",
+  },
+  btnSaveModal: {
+    backgroundColor: "green",
   },
   textStyle: {
     color: "white",
